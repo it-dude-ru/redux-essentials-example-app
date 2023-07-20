@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { postAdded } from "./postSlice";
+import { postAdded } from "./postsSlice";
 
 export const AddPostForm = () => {
 	const [title, setTitle] = useState('');
