@@ -8,6 +8,7 @@ const initialState = [
 		content: 'Hello!',
 		user: '0',
 		date: sub(new Date(), { minutes: 10 }).toISOString(),
+		reactions: { thumbsUp: 0, hooray: 0, heart: 0, rocket: 0, eyes: 0 },
 	},
 	{
 		id: '2',
@@ -15,6 +16,7 @@ const initialState = [
 		content: 'More text',
 		user: '2',
 		date: sub(new Date(), { minutes: 5 }).toISOString(),
+		reactions: { thumbsUp: 0, hooray: 0, heart: 0, rocket: 0, eyes: 0 },
 	},
 ];
 
