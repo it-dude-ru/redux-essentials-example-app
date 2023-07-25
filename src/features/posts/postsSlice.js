@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice, nanoid } from "@reduxjs/toolkit";
-import {client} from '../../api/client';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { client } from '../../api/client';
 
 const initialState = {
 	posts: [],
@@ -7,10 +7,13 @@ const initialState = {
 	error: null,
 };
 
-export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-	const responce = await client.get('/fakeApi/posts');
-	return responce.data;
-});
+export const fetchPosts = createAsyncThunk(
+	'posts/fetchPosts',
+	async () => {
+		const responce = await client.get('/fakeApi/posts');
+		return responce.data;
+	}
+);
 
 export const addNewPost = createAsyncThunk(
 	'posts/addNewPost',
