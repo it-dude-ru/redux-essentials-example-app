@@ -13,11 +13,11 @@ export const Navbar = () => {
 		dispatch(fetchNotifications());
 	}
 
-	let unreadNotificationsBage
+	let unreadNotificationsBadge
 
 	if (numUnreadNotifications > 0) {
-		unreadNotificationsBage = (
-			<span className="bage">{numUnreadNotifications}</span>
+		unreadNotificationsBadge = (
+			<span className="badge">{numUnreadNotifications}</span>
 		);
 	}
 	return (
@@ -30,7 +30,7 @@ export const Navbar = () => {
 						<Link to="/">Posts</Link>
 						<Link to="/users">Users</Link>
 						<Link to="/notifications">
-							Notifications {unreadNotificationsBage}
+							Notifications {unreadNotificationsBadge}
 						</Link>
 					</div>
 					<button className="button" onClick={fetchNewNotifications}>
