@@ -28,11 +28,9 @@ const notificationsSlice = createSlice({
 	extraReducers(builder) {
 		builder.addCase(fetchNotifications.fulfilled, (state, action) => {
 			state.push(...action.payload);
-			console.log('Before isNew set: ', state);
 			state.forEach(notification => {
 				notification.isNew = !notification.read;
 			});
-			console.log('After isNew set: ', state);
 			// Sort with newest first
 			state.sort((a, b) => b.date.localeCompare(a.date));
 		})
