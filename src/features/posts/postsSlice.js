@@ -39,7 +39,7 @@ const postsSlice = createSlice({
 		},
 		postUpdated(state, action) {
 			const { id, title, content } = action.payload;
-			const existingPost = state.entities[postId];
+			const existingPost = state.entities[id];
 			if (existingPost) {
 				existingPost.title = title;
 				existingPost.content = content;

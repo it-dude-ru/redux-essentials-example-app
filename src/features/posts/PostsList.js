@@ -6,7 +6,7 @@ import { Spinner } from '../../components/Spinner';
 import { PostAuthor } from './PostAuthor';
 import { TimeAgo } from './TimeAgo';
 import { ReactionButtons } from './ReactionButtons';
-import { fetchPosts, selectAllPosts, selectPostById, selectPostIds } from './postsSlice';
+import { fetchPosts, selectPostById, selectPostIds } from './postsSlice';
 
 const PostExcerpt = ({ postId }) => {
 	const post = useSelector(state => selectPostById(state, postId));
@@ -30,22 +30,22 @@ export const PostsList = () => {
 	const dispatch = useDispatch();
 	const orderedPostIds = useSelector(selectPostIds);
 
-	const postStatus = useSelector(state => state.posts.status);
+	const postsStatus = useSelector(state => state.posts.status);
 	const error = useSelector(state => state.posts.error);
 
 	useEffect(() => {
-		if (postStatus === 'idle') dispatch(fetchPosts());
-	}, [postStatus, dispatch]);
+		if (postsStatus === 'idle') dispatch(fetchPosts());
+	}, [postsStatus, dispatch]);
 
 	let content;
 
-	if (postStatus === 'loading') {
+	if (postsStatus === 'loading') {
 		content = <Spinner text="Loading..." />
-	} else if (postStatus === 'succeeded') {
+	} else if (postsStatus === 'succeeded') {
 		content = orderedPostIds.map(postId => (
-			<PostExcerpt key={postId} post={postId} />
-		))
-	} else if (postStatus === 'failed') {
+				<PostExcerpt key={postId} postId={postId} />
+			))
+	} else if (postsStatus === 'failed') {
 		content = <div>{error}</div>
 	}
 
