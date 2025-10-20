@@ -1,3 +1,5 @@
+Сделал этот проект в рамках изучения React + Redux, по мануалу, который был опубликован на: https://redux.js.org/tutorials/essentials/part-1-overview-concepts
+
 # Redux Essentials Tutorial Example
 
 This project contains the setup and code from the "Redux Essentials" tutorial in the Redux docs ( https://redux.js.org/tutorials/essentials/part-1-overview-concepts ).
